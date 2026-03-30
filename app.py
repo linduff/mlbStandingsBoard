@@ -20,3 +20,6 @@ async def read_item(request: Request):
     return templates.TemplateResponse(
         request=request, name="standings.html", context={"data": data}
     )
+
+if __name__ == "__main__":
+    app.run()
