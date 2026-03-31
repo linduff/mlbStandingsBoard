@@ -1,7 +1,33 @@
-.division {
-    display: inline-block;
+body {
+    margin: 0;
 }
 
-ul {
-    list-style: none;
+.league {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.division {
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+    padding: 0 10px;
+}
+
+.team {
+    background-color: lightblue;
+    padding: 25px 0;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.division-al {
+    font-family: Arial;
+    color: red;
+}
+
+.division-nl {
+    font-family: Arial;
+    color: darkBlue;
 }
