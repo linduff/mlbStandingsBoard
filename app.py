@@ -13,19 +13,48 @@ division_dict = {
     204 : "NL East",
     205 : "NL Central"
 }
+espnTeamData = {}
+teamsMapData = {}
+
+def getEspnIdFromMlbId(mlbId):
+    for team in teamsMapData["teams"]:
+        if team["mlbId"] == mlbId:
+            return team["espnId"]
+
+def getEspnTeamObject(mlbId):
+    id = str(getEspnIdFromMlbId(mlbId))
+    for team in espnTeamData["sports"][0]["leagues"][0]["teams"]:
+        if str(team["team"]["id"]) == id:
+            return team["team"]
 
 def formatStandingsJson(data):
     returnData = {}
     for division in data["records"]:
         returnData[division_dict[division["division"]["id"]]] = []
         for team in division["teamRecords"]:
-            returnData[division_dict[division["division"]["id"]]].append(team["team"]["name"] + " (" + str(team["leagueRecord"]["wins"]) + "-" + str(team["leagueRecord"]["losses"]) + ")")
+            espnData = getEspnTeamObject(team["team"]["id"])
+            teamInfo = {
+                "id": team["team"]["id"],
+                "wins": team["leagueRecord"]["wins"],
+                "losses": team["leagueRecord"]["losses"],
+                "slug": espnData["slug"],
+                "abbreviation": espnData["abbreviation"],
+                "displayName": espnData["displayName"],
+                "name": espnData["name"],
+                "location": espnData["location"],
+                "color": espnData["color"],
+                "alternateColor": espnData["alternateColor"],
+                "logoImage": espnData["logos"][0]["href"]
+            }
+            returnData[division_dict[division["division"]["id"]]].append(teamInfo)
     return returnData
 
-# with open('testData/standings-return.json', 'r') as file:
-    # returnData = json.load(file)
-with requests.get("https://statsapi.mlb.com/api/v1/standings?leagueId=103&leagueId=104") as returnData:
-    data = formatStandingsJson(returnData.json())
+with requests.get("https://statsapi.mlb.com/api/v1/standings?leagueId=103&leagueId=104") as returnData: 
+    with open('testData/espnTeamData.json', 'r') as espnFile:
+        with open('testData/teamsMap.json', 'r') as teamsMapFile:
+            teamsMapData = json.load(teamsMapFile)
+            espnTeamData = json.load(espnFile)
+            data = formatStandingsJson(returnData.json()) 
 
 app = FastAPI()
 

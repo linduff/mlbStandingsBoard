@@ -1,0 +1,154 @@
+{
+    "teams": [
+        {
+            "abbreviation": "ARI",
+            "mlbId": 109,
+            "espnId": 29
+        },
+        {
+            "abbreviation": "ATH",
+            "mlbId": 133,
+            "espnId": 11
+        },
+        {
+            "abbreviation": "ATL",
+            "mlbId": 144,
+            "espnId": 15
+        },
+        {
+            "abbreviation": "BAL",
+            "mlbId": 110,
+            "espnId": 1
+        },
+        {
+            "abbreviation": "BOS",
+            "mlbId": 111,
+            "espnId": 2
+        },
+        {
+            "abbreviation": "CHC",
+            "mlbId": 112,
+            "espnId": 16
+        },
+        {
+            "abbreviation": "CHW",
+            "mlbId": 145,
+            "espnId": 4
+        },
+        {
+            "abbreviation": "CIN",
+            "mlbId": 113,
+            "espnId": 17
+        },
+        {
+            "abbreviation": "CLE",
+            "mlbId": 114,
+            "espnId": 5
+        },
+        {
+            "abbreviation": "COL",
+            "mlbId": 115,
+            "espnId": 27
+        },
+        {
+            "abbreviation": "DET",
+            "mlbId": 116,
+            "espnId": 6
+        },
+        {
+            "abbreviation": "HOU",
+            "mlbId": 117,
+            "espnId": 18
+        },
+        {
+            "abbreviation": "KC",
+            "mlbId": 118,
+            "espnId": 7
+        },
+        {
+            "abbreviation": "LAA",
+            "mlbId": 108,
+            "espnId": 3
+        },
+        {
+            "abbreviation": "LAD",
+            "mlbId": 119,
+            "espnId": 19
+        },
+        {
+            "abbreviation": "MIA",
+            "mlbId": 146,
+            "espnId": 28
+        },
+        {
+            "abbreviation": "MIL",
+            "mlbId": 158,
+            "espnId": 8
+        },
+        {
+            "abbreviation": "MIN",
+            "mlbId": 142,
+            "espnId": 9
+        },
+        {
+            "abbreviation": "NYM",
+            "mlbId": 121,
+            "espnId": 21
+        },
+        {
+            "abbreviation": "NYY",
+            "mlbId": 147,
+            "espnId": 10
+        },
+        {
+            "abbreviation": "PHI",
+            "mlbId": 143,
+            "espnId": 22
+        },
+        {
+            "abbreviation": "PIT",
+            "mlbId": 134,
+            "espnId": 23
+        },
+        {
+            "abbreviation": "SD",
+            "mlbId": 135,
+            "espnId": 25
+        },
+        {
+            "abbreviation": "SF",
+            "mlbId": 137,
+            "espnId": 26
+        },
+        {
+            "abbreviation": "SEA",
+            "mlbId": 136,
+            "espnId": 12
+        },
+        {
+            "abbreviation": "STL",
+            "mlbId": 138,
+            "espnId": 24
+        },
+        {
+            "abbreviation": "TB",
+            "mlbId": 139,
+            "espnId": 30
+        },
+        {
+            "abbreviation": "TEX",
+            "mlbId": 140,
+            "espnId": 13
+        },
+        {
+            "abbreviation": "TOR",
+            "mlbId": 141,
+            "espnId": 14
+        },
+        {
+            "abbreviation": "WSH",
+            "mlbId": 120,
+            "espnId": 20
+        }
+    ]
+}
