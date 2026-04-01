@@ -4,6 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import requests
 import json
+import logging
+logging.basicConfig(level=logging.INFO)
 
 division_dict = {
     200 : "AL West",
@@ -49,7 +51,7 @@ def formatStandingsJson(data):
                 "logoImage": espnData["logos"][6]["href"] if espnData["abbreviation"] != "PIT" else espnData["logos"][7]["href"]
             }
             returnData[division_dict[division["division"]["id"]]].append(teamInfo)
-    print(teamInfo)
+    logging.info(teamInfo)
     return returnData
 
 with open('testData/espnTeamData.json', 'r') as espnFile:
