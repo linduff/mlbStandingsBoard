@@ -49,12 +49,15 @@ def formatStandingsJson(data):
             returnData[division_dict[division["division"]["id"]]].append(teamInfo)
     return returnData
 
+with open('testData/espnTeamData.json', 'r') as espnFile:
+    espnTeamData = json.load(espnFile)
+
+with open('testData/teamsMap.json', 'r') as teamsMapFile:
+    teamsMapData = json.load(teamsMapFile)
+
 with requests.get("https://statsapi.mlb.com/api/v1/standings?leagueId=103&leagueId=104") as returnData: 
-    with open('testData/espnTeamData.json', 'r') as espnFile:
-        with open('testData/teamsMap.json', 'r') as teamsMapFile:
-            teamsMapData = json.load(teamsMapFile)
-            espnTeamData = json.load(espnFile)
-            data = formatStandingsJson(returnData.json()) 
+    data = formatStandingsJson(returnData.json())
+
 
 app = FastAPI()
 
@@ -69,3 +72,9 @@ async def read_item(request: Request):
     return templates.TemplateResponse(
         request=request, name="standings.html", context={"data": data}
     )
+
+# @app.get("/team/<id>", response_class=HTMLResponse)
+# async def read_item(request: Request):
+#     return templates.TemplateResponse(
+#         request=request, name="team.html", context={"teamData": teamData}
+#     )
