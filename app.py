@@ -51,7 +51,7 @@ def formatStandingsJson(data):
                 "logoImage": espnData["logos"][6]["href"] if espnData["abbreviation"] != "PIT" else espnData["logos"][7]["href"]
             }
             returnData[division_dict[division["division"]["id"]]].append(teamInfo)
-    logging.info(teamInfo)
+    logging.info(returnData)
     return returnData
 
 with open('testData/espnTeamData.json', 'r') as espnFile:
