@@ -15,6 +15,8 @@ division_dict = {
 }
 espnTeamData = {}
 teamsMapData = {}
+teamsInfoData = {}
+
 
 def getEspnIdFromMlbId(mlbId):
     for team in teamsMapData["teams"]:
@@ -68,13 +70,15 @@ templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/", response_class=HTMLResponse)
-async def read_item(request: Request):
+async def homePage(request: Request):
     return templates.TemplateResponse(
         request=request, name="standings.html", context={"data": data}
     )
 
-# @app.get("/team/<id>", response_class=HTMLResponse)
-# async def read_item(request: Request):
-#     return templates.TemplateResponse(
-#         request=request, name="team.html", context={"teamData": teamData}
-#     )
+@app.get("/team/<id>", response_class=HTMLResponse)
+async def teamPage(request: Request, id):
+    with requests.get("https://statsapi.mlb.com/api/v1/teams/" + str(id)) as returnData:
+        teamsInfoData = returnData.json()
+    return templates.TemplateResponse(
+        request=request, name="team.html", context={"teamsInfoData": teamsInfoData}
+    )
