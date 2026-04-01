@@ -75,9 +75,9 @@ async def homePage(request: Request):
         request=request, name="standings.html", context={"data": data}
     )
 
-@app.get("/team/<id>", response_class=HTMLResponse)
-async def teamPage(request: Request, id):
-    with requests.get("https://statsapi.mlb.com/api/v1/teams/" + str(id)) as returnData:
+@app.get("/team/{id}", response_class=HTMLResponse)
+async def teamPage(request: Request, id: str):
+    with requests.get("https://statsapi.mlb.com/api/v1/teams/" + id) as returnData:
         teamsInfoData = returnData.json()
     return templates.TemplateResponse(
         request=request, name="team.html", context={"teamsInfoData": teamsInfoData}
