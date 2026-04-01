@@ -44,7 +44,7 @@ def formatStandingsJson(data):
                 "location": espnData["location"],
                 "color": espnData["color"],
                 "alternateColor": espnData["alternateColor"],
-                "logoImage": espnData["logos"][0]["href"]
+                "logoImage": espnData["logos"][6]["href"]
             }
             returnData[division_dict[division["division"]["id"]]].append(teamInfo)
     return returnData
