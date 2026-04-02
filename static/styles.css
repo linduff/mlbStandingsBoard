@@ -18,16 +18,16 @@ body {
 .team-page {
     text-decoration: none; 
     display: block;
+    transition: transform 0.2s ease;
 }
 
 .team {
     height: 60px;
     margin: 5px;
     border-radius: 5px;
-    transition: transform 0.2s ease;
 }
 
-.team:hover {
+.team-page:hover {
     transform: scale(1.05);
 }
 
