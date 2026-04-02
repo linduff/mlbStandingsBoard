@@ -24,11 +24,11 @@ body {
     height: 60px;
     margin: 5px;
     border-radius: 5px;
-    transition: transform 0.2s;
+    transition: transform 0.3s;
 }
 
 .team-page:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .division-al {
