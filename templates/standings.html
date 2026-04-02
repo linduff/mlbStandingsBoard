@@ -9,7 +9,7 @@
             <div class="division">
                 <h1 class="division-al">AL East</h1>
                 {% for team in data['AL East'] %}
-                    <a href={{url_for('teamPage', id=team['id'])}} style="text-decoration: none; display: block;">
+                    <a class="team-page" href={{url_for('teamPage', id=team['id'])}}>
                         <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
                     </a>
                 {% endfor %}
@@ -17,13 +17,17 @@
             <div class="division">
                 <h1 class="division-al">AL Central</h1>
                 {% for team in data['AL Central'] %}
-                    <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    <a class="team-page" href={{url_for('teamPage', id=team['id'])}}>
+                        <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    </a>
                 {% endfor %}
             </div>
             <div class="division">
                 <h1 class="division-al">AL West</h1>
                 {% for team in data['AL West'] %}
-                    <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    <a class="team-page" href={{url_for('teamPage', id=team['id'])}}>
+                        <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    </a>
                 {% endfor %}
             </div>
         </div>
@@ -31,19 +35,25 @@
             <div class="division">
                 <h1 class="division-nl">NL East</h1>
                 {% for team in data['NL East'] %}
-                    <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    <a class="team-page" href={{url_for('teamPage', id=team['id'])}}>
+                        <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    </a>
                 {% endfor %}
             </div>
             <div class="division">
                 <h1 class="division-nl">NL Central</h1>
                 {% for team in data['NL Central'] %}
-                    <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    <a class="team-page" href={{url_for('teamPage', id=team['id'])}}>
+                        <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    </a>
                 {% endfor %}
             </div>
             <div class="division">
                 <h1 class="division-nl">NL West</h1>
                 {% for team in data['NL West'] %}
-                    <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    <a class="team-page" href={{url_for('teamPage', id=team['id'])}}>
+                        <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
+                    </a>
                 {% endfor %}
             </div>
         </div>

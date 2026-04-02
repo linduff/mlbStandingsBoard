@@ -15,6 +15,11 @@ body {
     padding: 0 10px;
 }
 
+.team-page {
+    text-decoration: none; 
+    display: block;
+}
+
 .team {
     height: 60px;
     margin: 5px;
