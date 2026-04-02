@@ -9,7 +9,7 @@
             <div class="division">
                 <h1 class="division-al">AL East</h1>
                 {% for team in data['AL East'] %}
-                    <a href={{url_for('teamPage', id=team['id'])}} style="text-decoration: none; display: block;"></a>
+                    <a href={{url_for('teamPage', id=team['id'])}} style="text-decoration: none; display: block;">
                         <div class="team" style="background-color:#{{team['color']}}"><img style="width:60px;" src={{team['logoImage']}}></div>
                     </a>
                 {% endfor %}
