@@ -40,3 +40,7 @@ body {
     font-family: Arial;
     color: darkBlue;
 }
+
+table, th, td {
+  border: 1px solid black;
+}

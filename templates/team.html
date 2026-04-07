@@ -5,5 +5,26 @@
 </head>
 <body>
     <div>{{teamsInfoData['teams'][0]['name']}}</div>
+    <div>Next 10 days</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Home</th>
+                <th>Away</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for date in teamScheduleData['dates'] %}
+                {% for game in date['games'] %}
+                    <tr>
+                        <td>{{game['officialDate']}}</td>
+                        <td>{{game['teams']['home']['team']['name']}}</td>
+                        <td>{{game['teams']['away']['team']['name']}}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

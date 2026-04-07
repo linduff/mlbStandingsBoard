@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import requests
+from datetime import datetime, timedelta
 import json
 
 division_dict = {
@@ -16,6 +17,7 @@ division_dict = {
 espnTeamData = {}
 teamsMapData = {}
 teamsInfoData = {}
+teamScheduleData = {}
 
 
 def getEspnIdFromMlbId(mlbId):
@@ -60,6 +62,9 @@ with open('testData/teamsMap.json', 'r') as teamsMapFile:
 with requests.get("https://statsapi.mlb.com/api/v1/standings?leagueId=103&leagueId=104") as returnData: 
     data = formatStandingsJson(returnData.json())
 
+with requests.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=" + datetime.now().strftime("%Y-%m-%d") + "&endDate=" + datetime.now().strftime("%Y-%m-%d")) as returnData:
+    teamScheduleData = returnData.json()
+
 
 app = FastAPI()
 
@@ -72,13 +77,16 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 async def homePage(request: Request):
     return templates.TemplateResponse(
-        request=request, name="standings.html", context={"data": data}
+        request=request, name="standings.html", context={"data": data, "teamScheduleData": teamScheduleData}
     )
 
 @app.get("/team/{id}", response_class=HTMLResponse)
 async def teamPage(request: Request, id: str):
     with requests.get("https://statsapi.mlb.com/api/v1/teams/" + id) as returnData:
         teamsInfoData = returnData.json()
+    with requests.get("https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId=" + id + "&startDate=" + datetime.now().strftime("%Y-%m-%d") + "&endDate=" + (datetime.now() + timedelta(days=10)).strftime("%Y-%m-%d")) as returnData:
+        teamScheduleData = returnData.json()
+    
     return templates.TemplateResponse(
-        request=request, name="team.html", context={"teamsInfoData": teamsInfoData}
+        request=request, name="team.html", context={"teamsInfoData": teamsInfoData, "teamScheduleData": teamScheduleData}
     )
